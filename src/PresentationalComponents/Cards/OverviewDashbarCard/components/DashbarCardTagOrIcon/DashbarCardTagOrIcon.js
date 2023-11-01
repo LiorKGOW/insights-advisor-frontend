@@ -20,16 +20,14 @@ export const DashbarCardTagOrIcon = ({ title }) => {
     case PATHWAYS:
       return <RouteIcon size="md" data-cy="route-icon" />;
     case INCIDENTS:
-      return (
-        <RuleLabels key="incidentTag" rule={{ tags: INCIDENT_TAG }} isCompact />
-      );
+      return <RuleLabels key="incidentTag" rule={{ tags: INCIDENT_TAG }} isCompact />;
     case CRITICAL_RECOMMENDATIONS:
       return <TagLabelWithTooltip typeOfTag={SEVERITY_MAP[CRITICAL_TAG]} />;
     case IMPORTANT_RECOMMENDATIONS:
       return <TagLabelWithTooltip typeOfTag={SEVERITY_MAP[IMPORTANT_TAG]} />;
 
     default:
-      return null;
+      return <></>;
   }
 };
 

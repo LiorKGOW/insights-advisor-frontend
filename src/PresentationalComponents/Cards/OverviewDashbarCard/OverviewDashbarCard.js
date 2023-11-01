@@ -13,18 +13,15 @@ import {
 
 // this component returns the appropriate Card component based on the title it receives
 export const OverviewDashbarCard = ({ title, count, onClickFilterByTitle }) => {
-  const isWrongTitle =
-    title != PATHWAYS &&
-    title != INCIDENTS &&
-    title != IMPORTANT_RECOMMENDATIONS &&
-    title != CRITICAL_RECOMMENDATIONS;
 
-  return (
-    !isWrongTitle && (
+  const supportedTitles = [PATHWAYS, INCIDENTS, IMPORTANT_RECOMMENDATIONS, CRITICAL_RECOMMENDATIONS];
+  
+  if(supportedTitles.includes(title))
+    return (
       <Card isFullHeight className="dashbar-item">
         <CardBody>
           <DashbarCardTitle title={title} />
-
+  
           <Flex spaceItems={{ default: "spaceItemsSm" }}>
             <FlexItem>
               <DashbarCardTagOrIcon title={title} />
@@ -43,7 +40,8 @@ export const OverviewDashbarCard = ({ title, count, onClickFilterByTitle }) => {
         </CardBody>
       </Card>
     )
-  );
+  
+  return <></>;
 };
 
 OverviewDashbarCard.propTypes = {
